@@ -16,11 +16,11 @@ We use:
 > If you don't already have Python 3 and virtualenv, you can install them with `brew install python3` and `pip install virtualenv`.
 
 ~~~sh
-# First, create a Python 3 virtual environment with virtualenv
+# First, create a Python 3 virtual environment with virtualenv.
 virtualenv -p python3 env
-# Then let's start it
+# Then let's start it.
 source env/bin/activate
-# And install all our python dependencies
+# And install all our python dependencies.
 pip install -r requirements.txt
 ~~~
 
@@ -35,9 +35,9 @@ We use:
 > If you don't already have Node and npm installed, you can get them with `brew install node`.
 
 ~~~sh
-# First, install all front-end development global dependencies
-npm install -g <TODO> eslint jscs browser-sync
-# Then, install all project dependencies
+# First, install all front-end development global dependencies.
+npm install --global gulp browserify eslint jscs browser-sync
+# Then, install all project dependencies.
 npm install
 ~~~
 
