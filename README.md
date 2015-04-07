@@ -1,5 +1,10 @@
-# tekautoday
-Ten Years Ago, Today
+[Tekau Today](http://www.tekautoday.xyz/)
+==========
+
+> Ten Years Ago, Today
+
+- [Production site](http://www.tekautoday.xyz/)
+- [Trello board](https://trello.com/b/ytZCXTVM/tekau-today)
 
 ## Installation
 
@@ -44,6 +49,8 @@ npm install
 
 ## Working on the project
 
+> Everything mentioned in the installation process should already be done.
+
 ~~~sh
 # Always start by activating Python's virtualenv.
 source env/bin/activate
@@ -59,7 +66,7 @@ npm run test
 
 The site is deployed on [Heroku](http://heroku.com/).
 
-To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`.
+> To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`.
 
 You'll also need to do some configuration beforehand:
 
@@ -92,4 +99,4 @@ Only when we set up the Heroku Dyno:
 ~~~sh
 heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 heroku ps:scale web=1
-~~
+~~~
