@@ -37,6 +37,7 @@ We use:
 ~~~sh
 # First, install all front-end development global dependencies.
 npm install --global gulp browserify eslint jscs browser-sync
+gem install scss-lint
 # Then, install all project dependencies.
 npm install
 ~~~
