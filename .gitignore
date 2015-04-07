@@ -28,3 +28,6 @@ node_modules
 
 # Virtualenv directory
 env
+
+# Compiled files directories
+src/static/
