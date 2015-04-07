@@ -34,8 +34,7 @@
         "start": "python3 src/app.py & ./node_modules/.bin/gulp watch",
         "test": "./node_modules/.bin/gulp lint",
         "lint": "./node_modules/.bin/gulp lint",
-        "build": "./node_modules/.bin/gulp build",
-        "postinstall": "./node_modules/.bin/gulp build"
+        "build": "./node_modules/.bin/gulp build"
     },
     "dependencies": {
         "jquery": "^2.1.3",
