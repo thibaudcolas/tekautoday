@@ -1,6 +1,7 @@
 {
   "name": "tekautoday",
   "version": "0.1.0",
+  "private": true,
   "description": "Ten Years Ago, Today.",
   "homepage": "https://github.com/judsonsam/tekautoday",
   "author": "Sam Judson & Thibaud Colas",
@@ -31,6 +32,7 @@
     "lint": "jscs gulpfile.js"
   },
   "dependencies": {
+    "jquery": "^2.1.3",
     "lodash": "^3.6.0",
     "react": "^0.13.1"
   },
