@@ -27,6 +27,21 @@
   ],
   "scripts": {
     "start": "python3 src/app.py",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "jscs gulpfile.js"
+  },
+  "dependencies": {
+    "lodash": "^3.6.0",
+    "react": "^0.13.1"
+  },
+  "devDependencies": {
+    "babelify": "^6.0.1",
+    "browser-sync": "^2.5.3",
+    "browserify": "^9.0.7",
+    "eslint": "^0.18.0",
+    "esprima-fb": "^14001.1.0-dev-harmony-fb",
+    "gulp": "^3.8.11",
+    "jscs": "^1.12.0",
+    "reactify": "^1.1.0"
   }
 }
