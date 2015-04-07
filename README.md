@@ -61,11 +61,25 @@ The site is deployed on [Heroku](http://heroku.com/).
 
 To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`.
 
+You'll also need to do some configuration beforehand:
+
 ~~~sh
-# First log in to Heroku
+# First log in to Heroku.
 heroku login
-# Add the Heroku remote to the repository
+# Add the Heroku remote to the repository.
 heroku git:remote -r heroku -a tekautoday
-# Then push the code
-git push heroku master
+# Retrieve the deploy branch from GitHub.
+git fetch --all
 ~~~
+
+Then for each deploy:
+
+~~~sh
+# Switch to the deploy branch.
+git checkout deploy
+# Rebase it from master.
+git rebase master
+# Push it to GitHub.
+git push origin deploy
+# Then push the code to Heroku.
+git push heroku deploy:master
