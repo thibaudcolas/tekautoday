@@ -83,3 +83,13 @@ git rebase master
 git push origin deploy
 # Then push the code to Heroku.
 git push heroku deploy:master
+~~~
+
+### Other deployment configuration
+
+Only when we set up the Heroku Dyno:
+
+~~~sh
+heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
+heroku ps:scale web=1
+~~
