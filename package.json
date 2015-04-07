@@ -15,7 +15,8 @@
         "url": "https://github.com/judsonsam/tekautoday/issues"
     },
     "engines": {
-        "node": "0.12.x"
+        "node": "0.12.x",
+        "npm": "2.5.x"
     },
     "keywords": [
         "python",
