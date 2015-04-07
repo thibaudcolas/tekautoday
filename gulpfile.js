@@ -16,7 +16,7 @@ var reload = browserSync.reload;
 gulp.task('build:js', function() {
     return browserify({debug: true})
       .transform([babelify, reactify])
-      .require(require.resolve('src/js/main.js'), {entry: true})
+      .require(require.resolve('./src/js/main.js'), {entry: true})
       .bundle()
       .pipe(source('bundle.js'))
       .pipe(gulp.dest('src/static/js'))
@@ -46,7 +46,7 @@ gulp.task('lint:css', function() {
 
 gulp.task('lint', ['lint:js', 'lint:css']);
 
-gulp.task('watch', ['build'], function() {
+gulp.task('watch', ['build', 'lint'], function() {
     browserSync({
         proxy: 'http://localhost:5000/'
     });
