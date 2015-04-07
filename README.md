@@ -42,6 +42,30 @@ gem install scss-lint
 npm install
 ~~~
 
-
 ## Working on the project
 
+~~~sh
+# Always start by activating Python's virtualenv.
+source env/bin/activate
+# Then start the server and the development tools.
+npm run start
+# Voilà!
+# You can then go to http://localhost:3000/ to see the site running.
+# When you feel like it, you can run the tests.
+npm run test
+~~~
+
+## Deployment
+
+The site is deployed on [Heroku](http://heroku.com/).
+
+To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`.
+
+~~~sh
+# First log in to Heroku
+heroku login
+# Add the Heroku remote to the repository
+heroku git:remote -r heroku -a tekautoday
+# Then push the code
+git push heroku master
+~~~
