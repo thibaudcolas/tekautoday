@@ -1,0 +1,32 @@
+{
+  "name": "tekautoday",
+  "version": "0.1.0",
+  "description": "Ten Years Ago, Today.",
+  "homepage": "https://github.com/judsonsam/tekautoday",
+  "author": "Sam Judson & Thibaud Colas",
+  "license": "MIT",
+  "main": "./src/app.py",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:judsonsam/tekautoday.git"
+  },
+  "bugs": {
+    "url": "https://github.com/judsonsam/tekautoday/issues"
+  },
+  "keywords": [
+    "python",
+    "python3",
+    "flask",
+    "jinja2",
+    "react",
+    "browserify",
+    "heroku",
+    "es6",
+    "es2015",
+    "sass"
+  ],
+  "scripts": {
+    "start": "python3 src/app.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
