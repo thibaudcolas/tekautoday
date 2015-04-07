@@ -7,25 +7,44 @@ var babelify = require('babelify');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var eslint = require('gulp-eslint');
 var jscs = require('gulp-jscs');
 var scsslint = require('gulp-scss-lint');
 
 var reload = browserSync.reload;
 
+var AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+];
+
 gulp.task('build:js', function() {
     return browserify({debug: true})
-      .transform([babelify, reactify])
-      .require(require.resolve('./src/js/main.js'), {entry: true})
-      .bundle()
-      .pipe(source('bundle.js'))
-      .pipe(gulp.dest('src/static/js'))
-      .pipe(reload({stream: true}));
+        .transform([babelify, reactify])
+        .require(require.resolve('./src/js/main.js'), {entry: true})
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(gulp.dest('src/static/js'))
+        .pipe(reload({stream: true}));
 });
 
 gulp.task('build:css', function() {
     return gulp.src(['src/sass/*.scss'])
-        .pipe(sass())
+        .pipe(sass({
+            errLogToConsole: true,
+            precision: 10
+        }))
+        .pipe(autoprefixer({
+            browsers: AUTOPREFIXER_BROWSERS
+        }))
         .pipe(gulp.dest('src/static/css'))
         .pipe(reload({stream: true}));
 });
