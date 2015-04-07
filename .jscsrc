@@ -1,7 +1,11 @@
 {
   "preset": "airbnb",
+
+  "esprima": "esprima-fb",
+  "fileExtensions": [".js", ".jsx"],
+  "excludeFiles": ["node_modules/**"],
+
   "maximumLineLength": 80,
   "validateLineBreaks": "LF",
-  "validateIndentation": 4,
-  "excludeFiles": ["node_modules/**"]
+  "validateIndentation": 4
 }
