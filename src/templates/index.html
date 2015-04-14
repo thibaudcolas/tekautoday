@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
     <title>Tekau Today</title>
-    
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
@@ -33,17 +33,15 @@
         <header class="section">
             <div class="section--content title">
                <h1 class="">Tekau Today.</h1>
-                <span>New Zealand, 10 years ago</span> 
-            </div> 
+                <span>New Zealand, 10 years ago</span>
+            </div>
         </header>
-    
+
         <div class="section margin-top-xxxl">
             <div class="section--content grid">
                 <div class="col-2-3">
                     <h2>14 April 2015</h2>
-                    <!-- <img src="../img/placeholder-clouds-fog-haze-5086.jpeg" alt=""> -->
-                    <div class="placeholder">
-                    </div>
+                    <img class="placeholder" src="{{ url_for('static', filename='img/placeholder-clouds-fog-haze-5086.jpeg') }}" alt="">
                     <h3>Name of image – dynamic</h3>
                     <p>some text about it, can we pull this in?</p>
                 </div>
@@ -62,8 +60,8 @@
                 <p>created by Sam Judson and Thibaud Colas</p>
             </div>
         </div>
-            
-        
+
+
     </div>
 
     <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>

@@ -30,4 +30,5 @@ node_modules
 env
 
 # Compiled files directories
-src/static/
+src/static/css
+src/static/js
