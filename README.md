@@ -8,7 +8,7 @@
 
 ## Installation
 
-Those installation instructions should be executed inside the project root.
+These installation instructions should be executed inside the project root.
 
 ### Back-end setup
 
