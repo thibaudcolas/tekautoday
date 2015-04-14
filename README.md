@@ -66,7 +66,7 @@ npm run test
 
 The site is deployed on [Heroku](http://heroku.com/).
 
-> To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`.
+> To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`, an Heroku Account, and contributor access on the project.
 
 You'll also need to do some configuration beforehand:
 
