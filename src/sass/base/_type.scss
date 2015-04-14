@@ -1,0 +1,66 @@
+// TYPE 
+///////////////////////////////////////
+///////////////////////////////////////
+
+
+// Headers 
+///////////////////////////////////////
+
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-family: 'Helvetica Neue', arial, sans-serif;
+}
+
+h1 {
+	font-size: 4rem;
+	letter-spacing: -1px;
+	line-height: 1;
+	margin-bottom: 0.125em;
+}
+
+h2 {
+	margin-bottom: 0.5em;
+}
+
+
+.title {
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	padding-top: 6px;
+	top: 16%;
+	left: 8%;
+	border-top: 6px solid;
+}
+
+.subtitle {
+	display: block;
+	margin-top: -1rem;
+}
+
+
+
+// Body 
+///////////////////////////////////////
+
+
+p {
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+
+
+// Colour 
+///////////////////////////////////////
+
+
+.white {
+	color: white;
+}
+
+
+
+
+
