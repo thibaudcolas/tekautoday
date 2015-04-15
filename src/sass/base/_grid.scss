@@ -3,7 +3,7 @@
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-$grid-mobile: "(max-width: 600px)";
+$grid-mobile: '(max-width: 600px)';
 
 // @media #{$grid-mobile} {
 //   width: 100%;
@@ -12,11 +12,11 @@ $grid-mobile: "(max-width: 600px)";
 // grid
 
 .grid {
-	&:after {
- 		content: "";
-		display: table;
-		clear: both;
-	}
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 [class*='col-'] {
@@ -35,7 +35,7 @@ $grid-mobile: "(max-width: 600px)";
 }
 
 .col {
-	width: 100%;
+  width: 100%;
 }
 
 .col-1-2 {

@@ -57,7 +57,7 @@ linters:
   ImportPath:
     enabled: true
     leading_underscore: true
-    filename_extension: true
+    filename_extension: false
 
   Indentation:
     enabled: true
@@ -101,7 +101,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: BEM
+    convention: hyphenated_lowercase
 
   Shorthand:
     enabled: true
