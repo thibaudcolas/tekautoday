@@ -9,12 +9,17 @@
 }
 
 html {
-  background-color: $colorGray3;
+  background-color: $colorGray2;
 }
 
 .placeholder {
 	height: 0%;
 	width: 100%;
 	padding-bottom: 62%;
+<<<<<<< Updated upstream
 	margin-bottom: 2rem;
+=======
+	background-color: #000;
+	// margin-bottom: 2rem;
+>>>>>>> Stashed changes
 }

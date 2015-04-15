@@ -16,14 +16,50 @@
 }
 
 .margin-top-xl {
-	margin-top: 4rem;
+	margin-top: 3rem;
 }
 
-
 .margin-top-xxl {
-	margin-top: 8rem;
+	margin-top: 6rem;
+	@media #{$grid-mobile} {
+	  margin-top: 4em;
+	}
 }
 
 .margin-top-xxxl {
-	margin-top: 16rem;
+	margin-top: 12rem;
+	@media #{$grid-mobile} {
+	  margin-top: 6em;
+	}
 }
+
+.hero-text {
+	border: 2px solid;
+	padding: 1.5em 2em;
+	background-color: $colorGray1;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.section--content-border {
+	@media #{$grid-mobile} {
+		margin-bottom: 3em;
+	}
+
+	&:before {
+		content: "";
+		width: 60px;
+		height: 2px;
+		margin-bottom: 1em;
+		background-color: black;
+		display: block;
+	}
+}
+
+
+
+
+
+
