@@ -3,11 +3,8 @@
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-$grid-mobile: '(max-width: 600px)';
+$grid-mobile: '(min-width: 600px)';
 
-// @media #{$grid-mobile} {
-//   width: 100%;
-// }
 
 // grid
 
@@ -24,9 +21,9 @@ $grid-mobile: '(max-width: 600px)';
 }
 
 [class*='col-'] {
-  padding-right: 48px;
+  padding-right: 0;
   @media #{$grid-mobile} {
-    padding-right: 0;
+    padding-right: 48px;
   }
 }
 
@@ -39,37 +36,52 @@ $grid-mobile: '(max-width: 600px)';
 }
 
 .col-1-2 {
-  width: 50%;
+  width: 100%;
   @media #{$grid-mobile} {
-    width: 100%;
+    width: 50%;
+  }
+}
+
+.col-1-2-push {
+  width: 100%;
+  @media #{$grid-mobile} {
+    width: 50%;
+    float: right;
   }
 }
 
 .col-1-4 {
-  width: 25%;
+  width: 100%;
   @media #{$grid-mobile} {
-    width: 50%;
+    width: 25%;
+  }
+}
+
+.col-3-4 {
+  width: 100%;
+  @media #{$grid-mobile} {
+    width: 75%;
   }
 }
 
 .col-1-8 {
-  width: 12.5%;
+  width: 50%;
   @media #{$grid-mobile} {
-    width: 50%;
+    width: 12.5%;
   }
 }
 
 .col-2-3 {
-  width: 66.66%;
+  width: 100%;
   @media #{$grid-mobile} {
-    width: 100%;
+    width: 66.66%;
   }
 }
 
 .col-1-3 {
-  width: 33.33%;
+  width: 100%;
   @media #{$grid-mobile} {
-    width: 100%;
+    width: 33.33%;
   }
 }
 
