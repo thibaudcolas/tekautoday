@@ -84,8 +84,12 @@ Then for each deploy:
 ~~~sh
 # Switch to the deploy branch.
 git checkout deploy
-# Rebase it from master.
-git rebase master
+# Merge it with master.
+git merge master
+# Rebuild the project.
+npm run build
+# Commit the new build.
+git add . && git commit -m 'Deploy latest version'
 # Push it to GitHub.
 git push origin deploy
 # Then push the code to Heroku.
