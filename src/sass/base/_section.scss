@@ -5,6 +5,13 @@
 
 html {
   background-color: $colorGray1;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }
 
 .diagonal-bg {
@@ -12,6 +19,7 @@ html {
     content: '';
     background-color: $colorGray3;
     top: 0;
+    left: 0;
     height: 62%;
     width: 100%;
     position: fixed;
@@ -32,7 +40,6 @@ img, div {
 
   border: 2px solid;
   border-bottom: 0 solid;
-
 }
 
 .section {
@@ -49,6 +56,7 @@ img, div {
 
   &__title {
     padding-top: 0;
+    margin-top: 0;
   }
 }
 
@@ -93,7 +101,6 @@ img, div {
 }
 
 .section--content-border {
-
   &:before {
     content: '';
     width: 60px;
