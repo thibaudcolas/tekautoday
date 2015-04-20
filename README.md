@@ -1,4 +1,4 @@
-[Tekau Today](http://www.tekautoday.xyz/)
+[Tekau Today](http://www.tekautoday.xyz/) [![Travis](https://img.shields.io/travis/judsonsam/tekautoday.svg?style=flat-square)](https://travis-ci.org/judsonsam/tekautoday)
 ==========
 
 > Ten Years Ago, Today
