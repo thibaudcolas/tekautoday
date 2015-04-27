@@ -9,8 +9,14 @@ dnz = Dnz(os.environ.get('DNZ_KEY'))
 
 results = []
 
-def dnz_request(page = 1):
-    return dnz.search('', _and={'category':['Images'], 'year':['2005+TO+2006']}, per_page=100, page=page, fields=['id', 'date'])
+
+def dnz_request(page=1):
+    filters = {
+        'category': ['Images'],
+        'year': ['2005+TO+2006']
+    }
+    fields = ['id', 'date']
+    return dnz.search('', _and=filters, per_page=100, page=page, fields=fields)
 
 # First request.
 first_result = dnz_request()
