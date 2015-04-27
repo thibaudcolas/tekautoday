@@ -32,8 +32,8 @@
   ],
   "scripts": {
     "start": "gulp watch & python3 src/app.py",
-    "test": "gulp lint",
-    "lint": "gulp lint",
+    "test": "gulp lint && flake8 src/",
+    "lint": "gulp lint && flake8 src/",
     "build": "gulp build"
   },
   "dependencies": {

@@ -3,4 +3,5 @@ node_js:
   - '0.12'
 install:
   - gem install scss-lint
+  - pip install flake8
   - npm install

@@ -21,7 +21,9 @@ We use:
 > If you don't already have Python 3 and virtualenv, you can install them with `brew install python3` and `pip install virtualenv`.
 
 ~~~sh
-# First, create a Python 3 virtual environment with virtualenv.
+# First, install all back-end development dependencies.
+pip install flake8
+# Create a Python 3 virtual environment with virtualenv.
 virtualenv -p python3 env
 # Then let's start it.
 source env/bin/activate
