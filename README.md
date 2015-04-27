@@ -104,3 +104,12 @@ Only when we set up the Heroku Dyno:
 heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 heroku ps:scale web=1
 ~~~
+
+## Scripts
+
+Our `scripts/` rely on [pyDNZ](https://github.com/fogonwater/pydnz) to access the DNZ API. An [API key](http://www.digitalnz.org/developers) is also necessary.
+
+```sh
+export DNZ_KEY=<YOUR API KEY>
+python scripts/dnz-fetch.py
+``
