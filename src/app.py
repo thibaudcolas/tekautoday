@@ -20,7 +20,8 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
-    return flask.render_template('index.html')
+    image = flask.url_for('static', filename='img/placeholder-clouds-fog-haze-5086.jpeg')
+    return flask.render_template('index.html', image=image)
 
 
 @app.route('/hello')
@@ -31,12 +32,13 @@ def hello():
 @app.route('/random')
 def random_record():
     record_hash = random.choice(list(records.keys()))
-    return str(get_metadata(records[record_hash]['id']))
+    image = get_metadata(records[record_hash]['id'])['thumbnail_url']
+    return flask.render_template('index.html', image=image)
 
 
 def get_metadata(id):
     url = DNZ_URL + '{id}.json?api_key={key}'.format(id=id, key=DNZ_KEY)
-    return requests.get(url).json()
+    return requests.get(url).json()['record']
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
