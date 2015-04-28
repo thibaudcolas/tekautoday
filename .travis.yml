@@ -1,6 +1,6 @@
-language: node_js
-node_js:
-  - '0.12'
+language: python
+python:
+  - 3.4
 install:
   - gem install scss-lint
   - pip install flake8
