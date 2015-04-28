@@ -20,7 +20,8 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
-    image = flask.url_for('static', filename='img/placeholder-clouds-fog-haze-5086.jpeg')
+    placeholder = 'img/placeholder-clouds-fog-haze-5086.jpeg'
+    image = flask.url_for('static', filename=placeholder)
     return flask.render_template('index.html', image=image)
 
 
