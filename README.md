@@ -56,6 +56,8 @@ npm install
 ~~~sh
 # Always start by activating Python's virtualenv.
 source env/bin/activate
+# Export your DNZ API Key
+export DNZ_KEY=<YOUR API KEY>
 # Then start the server and the development tools.
 npm run start
 # Voilà!
@@ -103,6 +105,7 @@ git push heroku deploy:master
 Only when we set up the Heroku Dyno:
 
 ~~~sh
+heroku config:add DNZ_KEY=<Production DNZ API KEY>
 heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 heroku ps:scale web=1
 ~~~
