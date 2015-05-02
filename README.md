@@ -2,6 +2,8 @@
 ==========
 
 > Ten Years Ago, Today
+>
+> Tekau Today is an experiment built on top of the [DigitalNZ API](http://digitalnz.org/developers).
 
 - [Production site](http://www.tekautoday.xyz/)
 - [Trello board](https://trello.com/b/ytZCXTVM/tekau-today)
