@@ -1,10 +1,13 @@
 language: python
 python:
-  - 3.4
+    - 3.4
+branches:
+    except:
+      - deploy
 install:
   - gem install scss-lint
   - pip install flake8
   - pip install -r requirements.txt
   - npm install
 script:
-  - npm test
+    - npm test
