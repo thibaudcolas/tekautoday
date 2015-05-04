@@ -1,107 +1,28 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+{% block title %}Index{% endblock %}
 
-    <title>Tekau Today</title>
+{% block content %}
+    <div class="section--content grid">
+        <div class="col-2-3">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Tekau Today">
-    <meta name="application-name" content="Tekau Today">
-
-    <meta http-equiv="cleartype" content="on">
-
-    <meta name="description" content="Tekau Today — Ten Years Ago, Today">
-    <meta name="author" content="Sam Judson and Thibaud Colas">
-</head>
-
-<body role="document">
-
-    <div>
-        <header class="section">
-            <div class="section--content__title">
-                <div class="hero-title grid">
-                    <div class="col-2-3">
-                        <h1 class="fixed-title">Tekau <br>Today</h1>
-                        <span>New Zealand, 10 years ago</span>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="section margin-top-xl">
-            <div class="section--content grid">
-                <div class="col-2-3">
-
-                    <img class="placeholder" src="{{image}}" alt="">
-                </div>
-                <div class="col-1-3 top-neg-margin-xl">
-                    <div class="section--content-border">
-                        <h2>14 April 2015</h2>
-                        <div class="placeholder-calendar margin-top-xl">
-                            <p>Calendar here</p>
-                        </div>
-                        <h3>Name of image – dynamic</h3>
-                        <p>Anyway, Tama is just some uni student in disguise, to find the true meaning of life, one must start making scones with the gumboot, mate. After the section is jumped the ditch, you add all the primo pavlovas to the kiwi you've got yourself a meal. </p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="section--content grid">
-                <div class="col-1-3">
-
-                </div>
-            </div>
-            <div class="section--content grid">
-                <div class="col-1-3 section--content-border">
-                    <h3>About</h3>
-                    <p>A bit of text about what it is that we are doing with Tekau Today. Sam and Thibaud FTW.</p>
-                </div>
-                <div class="col-1-6 footer-p">
-                    <p>Copyright 2015 Tekau Today</p>
-                </div>
-                <div class="col-1-6 footer-p">
-                    <p>Created by Sam Judson and Thibaud Colas</p>
-                </div>
-            </div>
+            <img class="placeholder" src="{{image}}" alt="">
         </div>
-
-        <div class="section footer">
-            <div class="section--content grid">
-                <div class="col-1-2-push">
-
+        <div class="col-1-3 top-neg-margin-xl">
+            <div class="section--content-border">
+                <h2>14 April 2015</h2>
+                <div class="placeholder-calendar margin-top-xl">
+                    <p>Calendar here</p>
                 </div>
+                <h3>Name of image – dynamic</h3>
+                <p>Anyway, Tama is just some uni student in disguise, to find the true meaning of life, one must start making scones with the gumboot, mate. After the section is jumped the ditch, you add all the primo pavlovas to the kiwi you've got yourself a meal. </p>
             </div>
+
         </div>
-
-
     </div>
+    <div class="section--content grid">
+        <div class="col-1-3">
 
-    <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
-
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-62058429-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-</body>
-
-</html>
+        </div>
+    </div>
+{% endblock %}

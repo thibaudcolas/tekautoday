@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+    <title>Tekau Today</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Tekau Today">
+    <meta name="application-name" content="Tekau Today">
+
+    <meta http-equiv="cleartype" content="on">
+
+    <meta name="description" content="Tekau Today — Ten Years Ago, Today">
+    <meta name="author" content="Sam Judson and Thibaud Colas">
+</head>
+<body role="document">
+
+    <header class="section">
+        {% block header %}
+            <div class="section--content__title">
+                <div class="hero-title grid">
+                    <div class="col-2-3">
+                        <h1 class="fixed-title">Tekau <br>Today</h1>
+                        <p>New Zealand, 10 years ago</p>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </header>
+
+    <section class="section margin-top-xl">
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    <footer class="section footer">
+        <div class="section--content grid">
+            <div class="col-1-3 section--content-border">
+                <h3>About</h3>
+                <p>A bit of text about what it is that we are doing with Tekau Today. Sam and Thibaud FTW.</p>
+            </div>
+            <div class="col-1-6 footer-p">
+                <p>Copyright 2015 Tekau Today</p>
+            </div>
+            <div class="col-1-6 footer-p">
+                <p>Created by Sam Judson and Thibaud Colas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62058429-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
