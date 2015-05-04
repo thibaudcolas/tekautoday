@@ -23,8 +23,8 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
-    placeholder = 'img/placeholder-clouds-fog-haze-5086.jpeg'
-    image = flask.url_for('static', filename=placeholder)
+    today = str(datetime.date.today())
+    image = get_metadata(records[today]['id'])['thumbnail_url']
     return flask.render_template('index.html', image=image)
 
 
@@ -38,6 +38,7 @@ def today_record():
     today = str(datetime.date.today())
     image = get_metadata(records[today]['id'])['thumbnail_url']
     return flask.render_template('index.html', image=image)
+
 
 @app.route('/random')
 def random_record():
