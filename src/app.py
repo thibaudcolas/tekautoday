@@ -4,16 +4,19 @@ import random
 import flask
 import requests
 import hashlib
+import datetime
 
 DNZ_URL = 'http://api.digitalnz.org/v3/records/'
 DNZ_KEY = os.environ.get('DNZ_KEY')
 records = {}
 
-# TODO This should be switched to records associated with days.
 # Create a hash table of all records.
 for record in json.loads(open('data/records-2015.json').read())['records']:
-    record_hash = hashlib.md5(str(record['id']).encode('utf-8')).hexdigest()
-    records[record_hash] = record
+    record['hash'] = hashlib.md5(str(record['id']).encode('utf-8')).hexdigest()
+    record['date'] = record['date'][-1][:10]
+    date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
+    today_year = date.year + 10
+    records[str(date.replace(year=today_year))] = record
 
 app = flask.Flask(__name__)
 
@@ -29,6 +32,12 @@ def index():
 def hello():
     return 'hello'
 
+
+@app.route('/today')
+def today_record():
+    today = str(datetime.date.today())
+    image = get_metadata(records[today]['id'])['thumbnail_url']
+    return flask.render_template('index.html', image=image)
 
 @app.route('/random')
 def random_record():
