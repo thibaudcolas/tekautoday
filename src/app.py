@@ -29,9 +29,13 @@ def index():
     metadata = get_metadata(records[str(today)]['id'])
 
     context = {
-        'record_image': metadata['large_thumbnail_url'],
-        'record_url': metadata['landing_url'],
-        'readable_date': today.strftime('%d %B %Y')
+        'readable_date': today.strftime('%d %B %Y'),
+        'record': {
+            'image': metadata['large_thumbnail_url'],
+            'url': metadata['landing_url'],
+            'author': metadata['display_content_partner'],
+            'title': metadata['title']
+        }
     }
 
     return flask.render_template('index.html', **context)
