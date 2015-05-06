@@ -25,6 +25,8 @@ for record in json.loads(open('data/records-2015.json').read())['records']:
 
 app = flask.Flask(__name__)
 
+print(records)
+
 
 @app.route('/')
 def index():
@@ -32,10 +34,17 @@ def index():
     record = records[str(today)]
     metadata = get_metadata(record['id'])
 
+    date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
+
+    if metadata['object_url'] is not None:
+        image = metadata['object_url']
+    else:
+        image = metadata['large_thumbnail_url']
+
     context = {
-        'readable_date': today.strftime('%d %B %Y'),
+        'readable_date': date.strftime('%d %B %Y'),
         'record': {
-            'image': metadata['large_thumbnail_url'],
+            'image': image,
             'url': metadata['landing_url'],
             'author': metadata['display_content_partner'],
             'title': metadata['title'],
@@ -48,14 +57,20 @@ def index():
 
 @app.route('/record/<record_hash>')
 def record(record_hash):
-    today = datetime.date.today()
     record = records_hash[record_hash]
     metadata = get_metadata(record['id'])
 
+    date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
+
+    if metadata['object_url'] is not None:
+        image = metadata['object_url']
+    else:
+        image = metadata['large_thumbnail_url']
+
     context = {
-        'readable_date': today.strftime('%d %B %Y'),
+        'readable_date': date.strftime('%d %B %Y'),
         'record': {
-            'image': metadata['large_thumbnail_url'],
+            'image': image,
             'url': metadata['landing_url'],
             'author': metadata['display_content_partner'],
             'title': metadata['title'],
