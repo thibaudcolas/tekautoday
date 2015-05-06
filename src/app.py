@@ -23,9 +23,11 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
-    today = str(datetime.date.today())
-    image = get_metadata(records[today]['id'])['thumbnail_url']
-    return flask.render_template('index.html', image=image)
+    today = datetime.date.today()
+    metadata = get_metadata(records[str(today)]['id'])
+    image = metadata['thumbnail_url']
+    readable_date = today.strftime('%d %B %Y')
+    return flask.render_template('index.html', image=image, readable_date=readable_date)
 
 
 @app.route('/hello')
