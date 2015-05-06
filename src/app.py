@@ -10,7 +10,9 @@ import datetime
 
 DNZ_URL = 'http://api.digitalnz.org/v3/records/'
 DNZ_KEY = os.environ.get('DNZ_KEY')
+
 records = {}
+records_hash = {}
 
 # Create a hash table of all records.
 for record in json.loads(open('data/records-2015.json').read())['records']:
@@ -19,6 +21,7 @@ for record in json.loads(open('data/records-2015.json').read())['records']:
     date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
     today_year = date.year + 10
     records[str(date.replace(year=today_year))] = record
+    records_hash[record['hash']] = record
 
 app = flask.Flask(__name__)
 
@@ -41,28 +44,27 @@ def index():
     return flask.render_template('index.html', **context)
 
 
-@app.route('/hello')
-def hello():
-    return 'hello'
-
-
-@app.route('/api')
+@app.route('/api/record')
 def today_record():
     today = datetime.date.today()
-    metadata = get_metadata(records[str(today)]['id'])
+    record = records[str(today)]
+    metadata = get_metadata(record['id'])
+    metadata['hash'] = record['hash']
 
     return flask.jsonify(**metadata)
 
 
-@app.route('/random')
-def random_record():
-    record_hash = random.choice(list(records.keys()))
-    image = get_metadata(records[record_hash]['id'])['thumbnail_url']
-    return flask.render_template('index.html', image=image)
+@app.route('/api/record/<record_hash>')
+def random_record(record_hash):
+    metadata = get_metadata(records_hash[record_hash]['id'])
+    metadata['hash'] = record_hash
+
+    return flask.jsonify(**metadata)
 
 
 def get_metadata(id):
     url = DNZ_URL + '{id}.json?api_key={key}'.format(id=id, key=DNZ_KEY)
+
     return requests.get(url).json()['record']
 
 if __name__ == '__main__':
