@@ -29,7 +29,8 @@ app = flask.Flask(__name__)
 @app.route('/')
 def index():
     today = datetime.date.today()
-    metadata = get_metadata(records[str(today)]['id'])
+    record = records[str(today)]
+    metadata = get_metadata(record['id'])
 
     context = {
         'readable_date': today.strftime('%d %B %Y'),
@@ -37,15 +38,36 @@ def index():
             'image': metadata['large_thumbnail_url'],
             'url': metadata['landing_url'],
             'author': metadata['display_content_partner'],
-            'title': metadata['title']
+            'title': metadata['title'],
+            'permalink': '/record/' + record['hash']
         }
     }
 
     return flask.render_template('index.html', **context)
 
 
-@app.route('/api/record')
-def today_record():
+@app.route('/record/<record_hash>')
+def record(record_hash):
+    today = datetime.date.today()
+    record = records_hash[record_hash]
+    metadata = get_metadata(record['id'])
+
+    context = {
+        'readable_date': today.strftime('%d %B %Y'),
+        'record': {
+            'image': metadata['large_thumbnail_url'],
+            'url': metadata['landing_url'],
+            'author': metadata['display_content_partner'],
+            'title': metadata['title'],
+            'permalink': '/record/' + record_hash
+        }
+    }
+
+    return flask.render_template('index.html', **context)
+
+
+@app.route('/api/record/')
+def api_index():
     today = datetime.date.today()
     record = records[str(today)]
     metadata = get_metadata(record['id'])
@@ -55,7 +77,7 @@ def today_record():
 
 
 @app.route('/api/record/<record_hash>')
-def random_record(record_hash):
+def api_record(record_hash):
     metadata = get_metadata(records_hash[record_hash]['id'])
     metadata['hash'] = record_hash
 
