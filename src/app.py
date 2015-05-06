@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import json
 import random
@@ -27,7 +29,8 @@ def index():
     metadata = get_metadata(records[str(today)]['id'])
 
     context = {
-        'image': metadata['thumbnail_url'],
+        'record_image': metadata['large_thumbnail_url'],
+        'record_url': metadata['landing_url'],
         'readable_date': today.strftime('%d %B %Y')
     }
 
@@ -39,11 +42,12 @@ def hello():
     return 'hello'
 
 
-@app.route('/today')
+@app.route('/api')
 def today_record():
-    today = str(datetime.date.today())
-    image = get_metadata(records[today]['id'])['thumbnail_url']
-    return flask.render_template('index.html', image=image)
+    today = datetime.date.today()
+    metadata = get_metadata(records[str(today)]['id'])
+
+    return flask.jsonify(**metadata)
 
 
 @app.route('/random')
