@@ -79,7 +79,6 @@ def api_index():
     today = datetime.date.today()
     record = records[str(today)]
     metadata = lib.get_metadata(record)
-    metadata['hash'] = record['hash']
 
     return flask.jsonify(**metadata)
 
@@ -87,7 +86,6 @@ def api_index():
 @app.route('/api/record/<record_hash>')
 def api_record(record_hash):
     metadata = lib.get_metadata(records_hash[record_hash])
-    metadata['hash'] = record_hash
 
     return flask.jsonify(**metadata)
 
