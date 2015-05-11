@@ -8,48 +8,44 @@
 
 ## Installation
 
-These installation instructions should be executed inside the project root.
+> You first need to clone the project on your computer.
 
-### Back-end setup
+From the command-line:
 
-We use:
+```sh
+cd ~/Development/sites/
+git clone git@github.com:judsonsam/tekautoday.git
+cd tekautoday
+```
+
+Our main dependencies are:
 
 - [Python 3](https://www.python.org/) programming language.
 - [Flask](http://flask.pocoo.org/) web framework.
 - [virtualenv](https://virtualenv.pypa.io/en/latest/) and [pip](https://pypi.python.org/pypi/pip).
+- [Node.js](nodejs.org) JavaScript runtime and the [npm](https://www.npmjs.com/) ecosystem.
+- [Browserify](http://browserify.org/) dependency builder and the [Babel](https://babeljs.io/) ES6/ES2015 transpiler.
+- [React](https://facebook.github.io/react/) UI library, [jQuery](http://jquery.com/) and the [lodash](https://lodash.com/) utility library.
 
-> If you don't already have Python 3 and virtualenv, you can install them with `brew install python3` and `pip install virtualenv`.
+> If you don't already have those installed, use `brew install python node`.
 
-~~~sh
-# First, install all back-end development dependencies.
-pip install flake8
+To install our dependencies, run:
+
+```sh
+pip install flake8 virtualenv
+npm install --global gulp browserify eslint jscs browser-sync
+gem install scss-lint
 # Create a Python 3 virtual environment with virtualenv.
 virtualenv -p python3 env
 # Then let's start it.
 source env/bin/activate
 # And install all our python dependencies.
 pip install -r requirements.txt
-~~~
-
-### Front-end setup
-
-We use:
-
-- [Node.js](nodejs.org) JavaScript runtime and the [npm](https://www.npmjs.com/) ecosystem.
-- [Browserify](http://browserify.org/) dependency builder and the [Babel](https://babeljs.io/) ES6/ES2015 transpiler.
-- [React](https://facebook.github.io/react/) UI library, [jQuery](http://jquery.com/) and the [lodash](https://lodash.com/) utility library.
-
-> If you don't already have Node and npm installed, you can get them with `brew install node`.
-
-~~~sh
-# First, install all front-end development global dependencies.
-npm install --global gulp browserify eslint jscs browser-sync
-gem install scss-lint
-# Then, install all project dependencies.
+# Then, install all npm dependencies.
 npm install
 # If that's your thing, install the git hooks:
 ./hook/deploy
-~~~
+```
 
 ## Working on the project
 
