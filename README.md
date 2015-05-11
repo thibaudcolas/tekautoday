@@ -47,6 +47,8 @@ npm install --global gulp browserify eslint jscs browser-sync
 gem install scss-lint
 # Then, install all project dependencies.
 npm install
+# If that's your thing, install the git hooks:
+./hook/deploy
 ~~~
 
 ## Working on the project
