@@ -6,6 +6,12 @@
 - [Production site](http://www.tekautoday.xyz/)
 - [Trello board](https://trello.com/b/ytZCXTVM/tekau-today)
 
+Here are examples from the site:
+
+- [07 May 2005](http://www.tekautoday.xyz/record/ddafdd0330ffb48b082d132a348648d2)
+- [25 July 2005](http://www.tekautoday.xyz/record/8090b73800d9bb93beaf4a36f2a1f42a)
+- [27 January 2005](http://www.tekautoday.xyz/record/bf117d33a0631e1beafa38c5b8ac5d35)
+
 ## Installation
 
 > You first need to clone the project on your computer.
