@@ -32,3 +32,6 @@ env
 # Compiled files directories
 src/static/css
 src/static/js
+
+# Python debugging
+src/__pycache__/lib.cpython-34.pyc
