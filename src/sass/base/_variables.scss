@@ -5,12 +5,12 @@
 $grid-mobile: '(min-width: 600px)';
 $grid-medium: '(min-width: 900px)';
 
-$colorGray1: #fff8ee !default;
-$colorGray2: #fceddf !default;
-$colorGray3: #ccd6dd !default;
-$colorGray4: #8899a6 !default;
-$colorGray5: #66757f !default;
-$colorGray6: #292f33 !default;
+$color-gray1: #fff8ee !default;
+$color-gray2: #fceddf !default;
+$color-gray3: #ccd6dd !default;
+$color-gray4: #8899a6 !default;
+$color-gray5: #66757f !default;
+$color-gray6: #292f33 !default;
 
-$white:		#ffffff;
-$black:		#050810;
+$white:		#fff !default;
+$black:		#050810 !default;
