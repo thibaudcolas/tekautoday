@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var browserify = require('browserify');
 var babelify = require('babelify');
-var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var sass = require('gulp-sass');
 var pleeease = require('gulp-pleeease');
@@ -28,7 +27,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 gulp.task('build:js', function() {
     return browserify({debug: true})
-        .transform([babelify, reactify])
+        .transform([babelify])
         .require(require.resolve('./src/js/main.js'), {entry: true})
         .bundle()
         .pipe(source('bundle.js'))
