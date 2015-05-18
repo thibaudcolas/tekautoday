@@ -1,13 +1,18 @@
+$column-spacing: 5em / 7;
+
 .calendar {
-    color: $black;
+    table-layout: fixed;
+    border: 2px solid $black;
+    border-spacing: 0;
+    user-select: none;
 }
 
-.placeholder-calendar {
-    width: 100%;
-    padding: 30% 20%;
-    margin-bottom: 2em;
-    color: $white;
+.calendar th {
+    padding: $column-spacing .5em $column-spacing 0;
+}
+
+.calendar .day {
+    display: block;
+    padding: 5px;
     text-align: center;
-    background-color: transparent;
-    border: 2px solid $black;
 }

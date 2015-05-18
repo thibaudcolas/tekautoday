@@ -1,23 +1,31 @@
 
 {% macro calendar(month) %}
-    <div class="calendar">
-        <table>
+    <div class="calendar--wrapper">
+        <table class="calendar">
             <thead>
                 <tr>
-                    <th>M</th>
-                    <th>T</th>
-                    <th>W</th>
-                    <th>T</th>
-                    <th>F</th>
-                    <th>S</th>
-                    <th>S</th>
+                    <th scope="col" title="Monday">M</th>
+                    <th scope="col" title="Tuesday">T</th>
+                    <th scope="col" title="Wednesday">W</th>
+                    <th scope="col" title="Thursday">T</th>
+                    <th scope="col" title="Friday">F</th>
+                    <th scope="col" title="Saturday">S</th>
+                    <th scope="col" title="Sunday">S</th>
                 </tr>
             </thead>
             <tbody>
                 {% for week in month %}
                     <tr>
                         {% for date in week %}
-                            <td>{{ date.day }}</td>
+                            {% set link = date.day | day_link %}
+                            <td>
+                                {% if link != 1 %}
+                                    <div class="day">{{ date.day }}</div>
+                                {% else %}
+                                    <a href="{{link}}" class="day">{{ date.day }}</a>
+                                {% endif %}
+
+                            </td>
                         {% endfor %}
                     </tr>
                 {% endfor %}

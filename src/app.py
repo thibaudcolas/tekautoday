@@ -7,6 +7,7 @@ import flask
 import datetime
 
 import lib
+import filters
 
 records = {}
 records_hash = {}
@@ -19,6 +20,7 @@ for record in json.loads(open('data/records-2015.json').read())['records']:
     records_hash[record['hash']] = record
 
 app = flask.Flask(__name__)
+app.register_blueprint(filters.blueprint)
 
 
 @app.route('/')
