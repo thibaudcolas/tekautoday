@@ -13,15 +13,15 @@
         <div class="col-1-3 top-neg-margin-xl">
             <div class="section--content-border">
 
-                <h2>{{readable_date}}</h2>
+                <a href="{{ record.permalink }}">
+                    <h2>{{readable_date}}</h2>
+                </a>
 
                 {{ macros.calendar(calendar_month) }}
 
                 <a href="{{ record.url }}" rel="external">
                     <h3>{{ record.title | capitalize }}<br />{{ record.author | capitalize }}</h3>
                 </a>
-
-                <a href="{{ record.permalink }}"><p>Permalink</p></a>
             </div>
         </div>
 
