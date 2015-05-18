@@ -7,7 +7,7 @@ var babelify = require('babelify');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
+var pleeease = require('gulp-pleeease');
 var eslint = require('gulp-eslint');
 var jscs = require('gulp-jscs');
 var scsslint = require('gulp-scss-lint');
@@ -42,8 +42,17 @@ gulp.task('build:css', function() {
             errLogToConsole: true,
             precision: 10
         }))
-        .pipe(autoprefixer({
-            browsers: AUTOPREFIXER_BROWSERS
+        .pipe(pleeease({
+            minifier: true,
+            sourcemaps: false,
+            mqpacker: true,
+            filters: true,
+            rem: true,
+            pseudoElements: true,
+            opacity: true,
+            autoprefixer: {
+                browsers: AUTOPREFIXER_BROWSERS
+            }
         }))
         .pipe(gulp.dest('src/static/css'))
         .pipe(reload({stream: true}));
