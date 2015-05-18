@@ -31,7 +31,6 @@ Our main dependencies are:
 - [virtualenv](https://virtualenv.pypa.io/en/latest/) and [pip](https://pypi.python.org/pypi/pip).
 - [Node.js](nodejs.org) JavaScript runtime and the [npm](https://www.npmjs.com/) ecosystem.
 - [Browserify](http://browserify.org/) dependency builder and the [Babel](https://babeljs.io/) ES6/ES2015 transpiler.
-- [React](https://facebook.github.io/react/) UI library, [jQuery](http://jquery.com/) and the [lodash](https://lodash.com/) utility library.
 
 > If you don't already have those installed, use `brew install python node`.
 
