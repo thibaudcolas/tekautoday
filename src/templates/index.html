@@ -15,7 +15,7 @@
 
                 <h2>{{readable_date}}</h2>
 
-                {{ macros.calendar() }}
+                {{ macros.calendar(calendar_month) }}
 
                 <a href="{{ record.url }}" rel="external">
                     <h3>{{ record.title | capitalize }}<br />{{ record.author | capitalize }}</h3>

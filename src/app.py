@@ -42,7 +42,8 @@ def index():
             'author': metadata['display_content_partner'],
             'title': metadata['title'],
             'permalink': '/record/' + record['hash']
-        }
+        },
+        'calendar_month': lib.get_calendar()
     }
 
     return flask.render_template('index.html', **context)

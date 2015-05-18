@@ -1,6 +1,27 @@
 
-{% macro calendar() %}
-    <div class="calendar placeholder-calendar">
-        TODO
+{% macro calendar(month) %}
+    <div class="calendar">
+        <table>
+            <thead>
+                <tr>
+                    <th>M</th>
+                    <th>T</th>
+                    <th>W</th>
+                    <th>T</th>
+                    <th>F</th>
+                    <th>S</th>
+                    <th>S</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for week in month %}
+                    <tr>
+                        {% for date in week %}
+                            <td>{{ date.day }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endmacro %}

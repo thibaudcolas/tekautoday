@@ -2,8 +2,9 @@
 
 from os import environ
 from hashlib import md5
-from datetime import datetime
+from datetime import datetime, date
 from requests import get
+from calendar import Calendar
 
 DNZ_URL = 'http://api.digitalnz.org/v3/records/'
 DNZ_KEY = environ.get('DNZ_KEY')
@@ -36,3 +37,10 @@ def get_metadata(record):
     metadata['hash'] = record['hash']
 
     return metadata
+
+
+def get_calendar():
+    year = date.today().year
+    month = date.today().month
+
+    return Calendar(0).monthdatescalendar(year, month)
