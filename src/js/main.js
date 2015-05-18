@@ -1,8 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
-import _ from 'lodash';
+const world = 'World';
 
-$(document).ready(() => {
-    console.log(_.repeat('Hello, world!', 3));
-});
+console.log(`Hello, ${world}!`);
