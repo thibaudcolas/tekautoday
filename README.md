@@ -39,7 +39,7 @@ To install our dependencies, run:
 
 ```sh
 pip install flake8 virtualenv
-npm install --global gulp browserify eslint jscs browser-sync
+npm install --global gulp browserify eslint jscs browser-sync csscomb
 gem install scss-lint
 # Create a Python 3 virtual environment with virtualenv.
 virtualenv -p python3 env
