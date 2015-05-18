@@ -1,4 +1,6 @@
 scss_files: 'src/sass/**/*.scss'
+exclude: 'src/sass/normalize.scss'
+
 
 linters:
     BorderZero:
