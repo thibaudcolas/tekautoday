@@ -1,6 +1,9 @@
-// Colour 
+// Colour
 ///////////////////////////////////////
 ///////////////////////////////////////
+
+$grid-mobile: '(min-width: 600px)';
+$grid-medium: '(min-width: 900px)';
 
 $colorGray1: #fff8ee !default;
 $colorGray2: #fceddf !default;
@@ -11,4 +14,3 @@ $colorGray6: #292f33 !default;
 
 $white:		#ffffff;
 $black:		#050810;
-
