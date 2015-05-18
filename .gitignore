@@ -34,4 +34,4 @@ src/static/css
 src/static/js
 
 # Python debugging
-src/__pycache__/lib.cpython-34.pyc
+__pycache__
