@@ -3,7 +3,8 @@
 from os import environ
 import flask
 
-import datetime
+from datetime import date
+from datetime import datetime
 
 import records
 import utils
@@ -12,30 +13,36 @@ import filters
 app = flask.Flask(__name__)
 app.register_blueprint(filters.blueprint)
 
+cache = {}
+cache['day'] = date.today()
+cache['record'] = records.records_date[str(cache['day'])]
+cache['metadata'] = utils.get_metadata(cache['record'])
+
 
 @app.route('/')
 def index():
-    today = datetime.date.today()
-    record = records.records_date[str(today)]
-    metadata = utils.get_metadata(record)
+    today = date.today()
 
-    date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
+    if today != cache['day']:
+        cache['day'] = today
+        cache['record'] = records.records_date[str(cache['day'])]
+        cache['metadata'] = utils.get_metadata(cache['record'])
 
-    if metadata['object_url'] is not None:
-        image = metadata['object_url']
+    if cache['metadata']['object_url'] is not None:
+        image = cache['metadata']['object_url']
     else:
-        image = metadata['large_thumbnail_url']
+        image = cache['metadata']['large_thumbnail_url']
 
     context = {
-        'readable_date': date.strftime('%d %B %Y'),
+        'readable_date': today.strftime('%d %B %Y'),
         'record': {
             'image': image,
-            'url': metadata['landing_url'],
-            'author': metadata['display_content_partner'],
-            'title': metadata['title'],
-            'permalink': '/record/' + record['hash']
+            'url': cache['metadata']['landing_url'],
+            'author': cache['metadata']['display_content_partner'],
+            'title': cache['metadata']['title'],
+            'permalink': '/record/' + cache['record']['hash']
         },
-        'calendar_month': utils.get_calendar()
+        'calendar': utils.get_calendar()
     }
 
     return flask.render_template('index.html', **context)
@@ -61,7 +68,8 @@ def record(record_hash):
             'author': metadata['display_content_partner'],
             'title': metadata['title'],
             'permalink': '/record/' + record_hash
-        }
+        },
+        'calendar': utils.get_calendar()
     }
 
     return flask.render_template('index.html', **context)
@@ -69,11 +77,14 @@ def record(record_hash):
 
 @app.route('/api/record/')
 def api_index():
-    today = datetime.date.today()
-    record = records.records_date[str(today)]
-    metadata = utils.get_metadata(record)
+    today = date.today()
 
-    return flask.jsonify(**metadata)
+    if today != cache['day']:
+        cache['day'] = today
+        cache['record'] = records.records_date[str(cache['day'])]
+        cache['metadata'] = utils.get_metadata(cache['record'])
+
+    return flask.jsonify(**cache['metadata'])
 
 
 @app.route('/api/record/<record_hash>')
