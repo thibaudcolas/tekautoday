@@ -108,6 +108,7 @@ git push heroku deploy:master
 Only when we set up the Heroku Dyno:
 
 ~~~sh
+heroku config:add ENV=production
 heroku config:add DNZ_KEY=<Production DNZ API KEY>
 heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 heroku config:add TZ="Pacific/Auckland"
