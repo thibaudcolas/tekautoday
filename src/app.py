@@ -1,23 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from os import environ
-import json
 import flask
 
 import datetime
 
-import lib
+import records
+import utils
 import filters
-
-records = {}
-records_hash = {}
-
-# Create a hash table of all records.
-for record in json.loads(open('data/records-2015.json').read())['records']:
-    record = lib.parse_record(record)
-
-    records[record['date_current_year']] = record
-    records_hash[record['hash']] = record
 
 app = flask.Flask(__name__)
 app.register_blueprint(filters.blueprint)
@@ -26,8 +16,8 @@ app.register_blueprint(filters.blueprint)
 @app.route('/')
 def index():
     today = datetime.date.today()
-    record = records[str(today)]
-    metadata = lib.get_metadata(record)
+    record = records.records_date[str(today)]
+    metadata = utils.get_metadata(record)
 
     date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
 
@@ -45,7 +35,7 @@ def index():
             'title': metadata['title'],
             'permalink': '/record/' + record['hash']
         },
-        'calendar_month': lib.get_calendar()
+        'calendar_month': utils.get_calendar()
     }
 
     return flask.render_template('index.html', **context)
@@ -53,8 +43,8 @@ def index():
 
 @app.route('/record/<record_hash>')
 def record(record_hash):
-    record = records_hash[record_hash]
-    metadata = lib.get_metadata(record)
+    record = records.records_hash[record_hash]
+    metadata = utils.get_metadata(record)
 
     date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
 
@@ -80,15 +70,15 @@ def record(record_hash):
 @app.route('/api/record/')
 def api_index():
     today = datetime.date.today()
-    record = records[str(today)]
-    metadata = lib.get_metadata(record)
+    record = records.records_date[str(today)]
+    metadata = utils.get_metadata(record)
 
     return flask.jsonify(**metadata)
 
 
 @app.route('/api/record/<record_hash>')
 def api_record(record_hash):
-    metadata = lib.get_metadata(records_hash[record_hash])
+    metadata = utils.get_metadata(records.records_hash[record_hash])
 
     return flask.jsonify(**metadata)
 

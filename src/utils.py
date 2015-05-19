@@ -1,27 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from os import environ
-from hashlib import md5
-from datetime import datetime, date
+from datetime import date
 from requests import get
 from calendar import Calendar
 
 DNZ_URL = 'http://api.digitalnz.org/v3/records/'
 DNZ_KEY = environ.get('DNZ_KEY')
-
-
-def parse_record(record):
-    """
-    Parses a metadata record to make it usable.
-    """
-
-    record['hash'] = md5(str(record['id']).encode('utf-8')).hexdigest()
-    record['date'] = record['date'][-1][:10]
-    date = datetime.strptime(record['date'], '%Y-%m-%d').date()
-    current_year = date.year + 10
-    record['date_current_year'] = str(date.replace(year=current_year))
-
-    return record
 
 
 def get_metadata(record):
@@ -40,6 +25,10 @@ def get_metadata(record):
 
 
 def get_calendar():
+    """
+    Generates a calendar structure for the current month.
+    """
+
     year = date.today().year
     month = date.today().month
 
