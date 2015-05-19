@@ -3,7 +3,6 @@
 from os import environ
 import flask
 
-from datetime import date
 from datetime import datetime
 
 import records
@@ -13,20 +12,15 @@ import filters
 app = flask.Flask(__name__)
 app.register_blueprint(filters.blueprint)
 
-cache = {}
-cache['day'] = date.today()
-cache['record'] = records.records_date[str(cache['day'])]
-cache['metadata'] = utils.get_metadata(cache['record'])
+cache = utils.update_record_cache()
 
 
 @app.route('/')
 def index():
-    today = date.today()
+    global cache
+    cache = utils.update_record_cache(cache)
 
-    if today != cache['day']:
-        cache['day'] = today
-        cache['record'] = records.records_date[str(cache['day'])]
-        cache['metadata'] = utils.get_metadata(cache['record'])
+    d = datetime.strptime(cache['record']['date'], '%Y-%m-%d').date()
 
     if cache['metadata']['object_url'] is not None:
         image = cache['metadata']['object_url']
@@ -34,7 +28,7 @@ def index():
         image = cache['metadata']['large_thumbnail_url']
 
     context = {
-        'readable_date': today.strftime('%d %B %Y'),
+        'readable_date': d.strftime('%d %B %Y'),
         'record': {
             'image': image,
             'url': cache['metadata']['landing_url'],
@@ -53,7 +47,7 @@ def record(record_hash):
     record = records.records_hash[record_hash]
     metadata = utils.get_metadata(record)
 
-    date = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
+    d = datetime.datetime.strptime(record['date'], '%Y-%m-%d').date()
 
     if metadata['object_url'] is not None:
         image = metadata['object_url']
@@ -61,7 +55,7 @@ def record(record_hash):
         image = metadata['large_thumbnail_url']
 
     context = {
-        'readable_date': date.strftime('%d %B %Y'),
+        'readable_date': d.strftime('%d %B %Y'),
         'record': {
             'image': image,
             'url': metadata['landing_url'],
@@ -77,12 +71,8 @@ def record(record_hash):
 
 @app.route('/api/record/')
 def api_index():
-    today = date.today()
-
-    if today != cache['day']:
-        cache['day'] = today
-        cache['record'] = records.records_date[str(cache['day'])]
-        cache['metadata'] = utils.get_metadata(cache['record'])
+    global cache
+    cache = utils.update_record_cache(cache)
 
     return flask.jsonify(**cache['metadata'])
 
