@@ -1,12 +1,25 @@
 # -*- coding: utf-8 -*-
 
+import flask
 import json
+
 from hashlib import md5
 from datetime import datetime
 
 # Hash tables that store the records.
 records_date = {}
 records_hash = {}
+
+
+def get_record_by_hash(record_hash):
+    try:
+        return records_hash[record_hash]
+    except KeyError:
+        flask.abort(500)
+
+
+def get_record_by_date(record_date):
+    return records_date[record_date]
 
 
 def parse_record(record):

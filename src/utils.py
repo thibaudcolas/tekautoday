@@ -2,6 +2,7 @@
 
 from os import environ
 from datetime import date
+from datetime import datetime
 from requests import get
 from calendar import Calendar
 
@@ -48,7 +49,46 @@ def update_record_cache(cache={}):
         print('Invalidating cache for ' + str(today))
 
         cache['day'] = today
-        cache['record'] = records.records_date[str(cache['day'])]
-        cache['metadata'] = get_metadata(cache['record'])
+
+        try:
+            cache['record'] = records.get_record_by_date(str(cache['day']))
+            cache['metadata'] = get_metadata(cache['record'])
+        except KeyError:
+            cache['record'] = {
+                'hash': 'nothing',
+                'date': '2200-03-01'
+            }
+            cache['metadata'] = {
+                'object_url': 'TODO',
+                'large_thumbnail_url': 'TODO',
+                'landing_url': 'TODO',
+                'display_content_partner': 'TODO',
+                'title': 'TODO'
+            }
 
     return cache
+
+
+def format_response(record, metadata):
+    """
+    Generates all variables that will be passed to the template.
+    """
+
+    day_date = datetime.strptime(record['date'], '%Y-%m-%d').date()
+
+    if metadata['object_url'] is not None:
+        image = metadata['object_url']
+    else:
+        image = metadata['large_thumbnail_url']
+
+    return {
+        'readable_date': day_date.strftime('%d %B %Y'),
+        'record': {
+            'image': image,
+            'url': metadata['landing_url'],
+            'author': metadata['display_content_partner'],
+            'title': metadata['title'],
+            'permalink': '/record/' + record['hash']
+        },
+        'calendar': get_calendar()
+    }
