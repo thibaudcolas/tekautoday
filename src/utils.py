@@ -56,14 +56,15 @@ def update_record_cache(cache={}):
         except KeyError:
             cache['record'] = {
                 'hash': 'nothing',
-                'date': '2200-03-01'
+                'date': '3320-05-04',
+                'date_current_year': '3320'
             }
             cache['metadata'] = {
-                'object_url': 'TODO',
-                'large_thumbnail_url': 'TODO',
-                'landing_url': 'TODO',
-                'display_content_partner': 'TODO',
-                'title': 'TODO'
+                'object_url': '',
+                'large_thumbnail_url': '',
+                'landing_url': '/',
+                'display_content_partner': '',
+                'title': 'Not much to show today'
             }
 
     return cache
