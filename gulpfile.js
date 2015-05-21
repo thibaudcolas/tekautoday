@@ -71,7 +71,7 @@ gulp.task('lint:css', function() {
         .pipe(scsslint());
 });
 
-gulp.task('lint', ['lint:js', 'lint:css']);
+gulp.task('lint', ['lint:css']);
 
 gulp.task('watch', ['build', 'lint'], function() {
     browserSync({
