@@ -29,9 +29,9 @@ div {
 }
 
 .section {
-    width: 100%;
-    max-width: 1600px;
-    padding: 0 8%;
+    width: 90%;
+    // max-width: 1600px;
+    padding: 0 4%;
     margin: 0 auto;
 }
 
@@ -84,16 +84,20 @@ div {
 
 .hero-title {
     display: block;
-    padding-top: 50px;
+    padding-top: 40px;
     border-top: 12px solid;
-    @media #{$grid-mobile} {
-        padding-top: 80px;
-    }
 }
 
 .fixed-title {
-    position: fixed;
+    position: absolute;
     top: .925em;
+    @media #{$grid-mobile} {
+        position: fixed;
+        top: .75em;
+    }
+    @media #{$grid-medium} {
+        top: .625em;
+    }
 }
 
 .section--content-border {

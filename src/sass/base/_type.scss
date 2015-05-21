@@ -20,9 +20,12 @@ span {
 }
 
 h1 {
-    font-size: 6rem;
-    line-height: .875;
+    font-size: 5rem;
+    line-height: .825;
     letter-spacing: -1px;
+    @media #{$grid-mobile} {
+        font-size: 6.5rem;
+    }
     @media #{$grid-medium} {
         font-size: 8rem;
     }
@@ -34,6 +37,31 @@ h2 {
 
 h3 {
     margin-bottom: 1.25rem;
+}
+
+a,
+a * {
+    color: $black;
+    text-decoration: underline;
+
+    transition: opacity 1s ease;
+
+    &:hover, 
+    &:focus {
+        text-decoration: none;
+        opacity: 0.5; 
+
+        transition: opacity 0.25s;
+    }
+}
+
+a h1, 
+a h2,
+a h3, 
+a h4,
+a h5, 
+a h6 {
+    text-decoration: none;
 }
 
 
@@ -51,7 +79,7 @@ p {
 }
 
 .footer-p {
-    padding-top: 2.675rem;
+    padding-top: 3.8rem;
 }
 
 

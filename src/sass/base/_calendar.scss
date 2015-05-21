@@ -2,9 +2,11 @@ $column-spacing: 5em / 7;
 
 .calendar {
     table-layout: fixed;
-    border: 2px solid $black;
+    border: none;
     border-spacing: 0;
     user-select: none;
+
+    text-align: center;
 }
 
 .calendar th {
@@ -12,7 +14,14 @@ $column-spacing: 5em / 7;
 }
 
 .calendar .day {
+	font-size: 0.875rem;
+	text-decoration: none;
+
     display: block;
-    padding: 5px;
+    padding: 12px;
     text-align: center;
 }
+
+// .calendar tr {
+// 	border-bottom: 1px solid $black;
+// }

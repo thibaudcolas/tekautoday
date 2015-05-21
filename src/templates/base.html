@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
-    <title>Tekau Today</title>
+    <title>Tekau Today | {{readable_date}}</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
@@ -32,7 +32,7 @@
             <div class="section--content__title">
                 <div class="hero-title grid">
                     <div class="col-2-3">
-                        <h1 class="fixed-title">Tekau <br>Today</h1>
+                        <a href="/"><h1 class="fixed-title">Tekau <br>Today</h1></a>
                         <p>New Zealand, 10 years ago</p>
                     </div>
                 </div>
@@ -49,13 +49,13 @@
         <div class="section--content grid">
             <div class="col-1-3 section--content-border">
                 <h3>About</h3>
-                <p>A bit of text about what it is that we are doing with Tekau Today. Sam and Thibaud FTW.</p>
+                <p>Tekau Today is driven by <a href="http://www.digitalnz.org/" target="_blank">DigitalNZ</a>. We showcase interesting, random content from 10 years ago, today. </p>
             </div>
             <div class="col-1-6 footer-p">
                 <p>Copyright 2015 <a href="/">Tekau Today</a></p>
             </div>
             <div class="col-1-6 footer-p">
-                <p>Created by Sam Judson and Thibaud Colas – Source code <a href="https://github.com/judsonsam/tekautoday">available on GitHub</a>.</p>
+                <p>Created by <a href="http://www.samjudson.com" target="_blank">Sam Judson</a> and <a href="https://twitter.com/ThibWeb" target="_blank">Thibaud Colas</a>. <br />Source code <a href="https://github.com/judsonsam/tekautoday" target="_blank">available on GitHub</a>.</p>
             </div>
         </div>
     </footer>
