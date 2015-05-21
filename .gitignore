@@ -35,3 +35,4 @@ src/static/js
 
 # Python debugging
 __pycache__
+*.pyc
