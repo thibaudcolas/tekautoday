@@ -48,12 +48,16 @@ def api_record(record_hash):
 
 @app.errorhandler(500)
 def internal_error(error):
-    return "500 error"
+    context = utils.format_error_response(error)
+
+    return flask.render_template('error.html', **context)
 
 
 @app.errorhandler(404)
 def not_found(error):
-    return "404 error"
+    context = utils.format_error_response(error)
+
+    return flask.render_template('error.html', **context)
 
 if __name__ == '__main__':
     port = int(environ.get('PORT', 5000))

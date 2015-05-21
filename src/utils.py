@@ -93,3 +93,17 @@ def format_response(record, metadata):
         },
         'calendar': get_calendar()
     }
+
+
+def format_error_response(error):
+    """
+    Generates all variables that will be passed to the error template.
+    """
+
+    today = date.today()
+
+    return {
+        'readable_date': today.strftime('%d %B %Y'),
+        'error': error,
+        'calendar': get_calendar()
+    }

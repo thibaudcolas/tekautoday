@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block content %}
+    <div class="section--content grid">
+
+        <div class="col-2-3">
+            <a href="http://example.com" rel="external">
+                <img class="day-image" src="http://placehold.it/600x100" alt="A funny error image" title="A funny error image">
+            </a>
+        </div>
+
+        <div class="col-1-3 top-neg-margin-xl">
+            <div class="section--content-border">
+
+                <a href="http://example.com">
+                    <h2>{{readable_date}}</h2>
+                </a>
+
+                <p>Please try another day from our calendar:</p>
+
+                {{ macros.calendar(calendar) }}
+
+                <a href="http://example.com" rel="external">
+                    <h3>{{error}} :(</h3>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="section--content grid">
+        <div class="col-1-3">
+
+        </div>
+    </div>
+{% endblock %}
