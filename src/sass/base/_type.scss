@@ -19,7 +19,8 @@ span {
     color: $black;
 }
 
-h1 {
+h1, 
+.h1 {
     font-size: 5rem;
     line-height: .825;
     letter-spacing: -1px;
@@ -80,6 +81,10 @@ p {
 
 .footer-p {
     padding-top: 3.8rem;
+}
+
+.404-p {
+    font-size: 6rem;
 }
 
 
