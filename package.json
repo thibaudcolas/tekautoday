@@ -32,7 +32,7 @@
   ],
   "scripts": {
     "start": "gulp watch & python3 src/app.py",
-    "test": "gulp lint && flake8 src/",
+    "test": "npm run lint && py.test test",
     "lint": "gulp lint && flake8 src/",
     "build": "gulp build"
   },
