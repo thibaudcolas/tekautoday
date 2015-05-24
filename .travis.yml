@@ -4,6 +4,7 @@ python:
 install:
   - gem install scss-lint
   - pip install flake8
+  - pip install -r requirements.txt
   - npm install
 script:
   - npm test
