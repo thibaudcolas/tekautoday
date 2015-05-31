@@ -4,7 +4,7 @@ import json
 
 from pprint import pprint
 from datetime import date
-from pydnz import Dnz
+from scripts.pydnz import Dnz
 
 dnz_api = Dnz(os.environ.get('DNZ_KEY'))
 YEAR_INTERVAL = 10

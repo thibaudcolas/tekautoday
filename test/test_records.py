@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import src.records as records
 
 

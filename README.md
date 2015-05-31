@@ -123,5 +123,5 @@ Our `scripts/` rely on [pyDNZ](https://github.com/fogonwater/pydnz) to access th
 
 ```sh
 export DNZ_KEY=<YOUR API KEY>
-python scripts/dnz-fetch.py
+python scripts/fetch.py
 ```
