@@ -51,13 +51,12 @@ def update_record_cache(cache={}):
         cache['day'] = today
 
         try:
-            cache['record'] = records.get_record_by_date(str(cache['day']))
+            cache['record'] = records.get_record_by_date(cache['day'])
             cache['metadata'] = get_metadata(cache['record'])
         except KeyError:
             cache['record'] = {
                 'hash': 'nothing',
-                'date': '3320-05-04',
-                'date_current_year': '3320'
+                'date': '3320-05-04'
             }
             cache['metadata'] = {
                 'object_url': '',

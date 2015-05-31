@@ -4,7 +4,6 @@ import flask
 import json
 
 from hashlib import md5
-from datetime import datetime
 
 # Hash tables that store the records.
 records_date = {}
@@ -18,22 +17,23 @@ def get_record_by_hash(record_hash):
         flask.abort(500)
 
 
-def get_record_by_date(record_date):
-    return records_date[record_date]
+def get_record_by_date(date):
+    # date = datetime.strptime(record['date'], '%Y-%m-%d').date()
+    year = date.year - 10
+    key = str(date.replace(year=year))
+    return records_date[key]
 
 
-def parse_record(record):
+def create_record(date, identifier):
     """
-    Parses a metadata record to make it usable.
+    Creates a usable metadata record.
     """
 
-    record['hash'] = md5(str(record['id']).encode('utf-8')).hexdigest()
-    record['date'] = record['date'][-1][:10]
-    date = datetime.strptime(record['date'], '%Y-%m-%d').date()
-    current_year = date.year + 10
-    record['date_current_year'] = str(date.replace(year=current_year))
-
-    return record
+    return {
+        'id': identifier,
+        'hash': md5(str(identifier).encode('utf-8')).hexdigest(),
+        'date': date
+    }
 
 
 def load_records():
@@ -41,12 +41,13 @@ def load_records():
     Loads records into two hash tables.
     """
 
-    json_records = json.loads(open('data/records-2015.json').read())['records']
+    json_records = json.loads(open('data/dnz-records.json').read())
 
-    for record in json_records:
-        record = parse_record(record)
+    for date in json_records:
+        identifier = json_records[date]
+        record = create_record(date, identifier)
 
-        records_date[record['date_current_year']] = record
+        records_date[record['date']] = record
         records_hash[record['hash']] = record
 
 load_records()
