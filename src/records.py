@@ -19,9 +19,14 @@ def get_record_by_hash(record_hash):
 
 def get_record_by_date(date):
     # date = datetime.strptime(record['date'], '%Y-%m-%d').date()
-    year = date.year - 10
-    key = str(date.replace(year=year))
-    return records_date[key]
+    years = [
+        date.year - 10,
+        date.year - 5,
+        date.year - 2
+    ]
+    keys = [str(date.replace(year=year)) for year in years]
+
+    return next(records_date[key] for key in keys if key in records_date)
 
 
 def create_record(date, identifier):

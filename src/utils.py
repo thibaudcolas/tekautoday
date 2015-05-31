@@ -53,7 +53,7 @@ def update_record_cache(cache={}):
         try:
             cache['record'] = records.get_record_by_date(cache['day'])
             cache['metadata'] = get_metadata(cache['record'])
-        except KeyError:
+        except StopIteration:
             cache['record'] = {
                 'hash': 'nothing',
                 'date': '3320-05-04'
