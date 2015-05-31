@@ -1,7 +1,7 @@
 
 {% macro calendar(month) %}
     <div class="calendar--wrapper">
-        <table class="calendar">
+        <table class="calendar" role="nav">
             <thead>
                 <tr>
                     <th scope="col" title="Monday">M</th>
@@ -22,7 +22,11 @@
                                 {% if link != 1 %}
                                     <div class="day">{{ date.day }}</div>
                                 {% else %}
-                                    <a href="{{link}}" class="day">{{ date.day }}</a>
+                                    <a href="{{link}}" class="day" title="{{date.strftime('%d %B %Y')}}">
+                                        <time datetime="{{date.isoformat()}}">
+                                            {{ date.day }}
+                                        </time>
+                                    </a>
                                 {% endif %}
 
                             </td>

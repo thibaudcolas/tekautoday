@@ -2,11 +2,11 @@
 {% import "macros.html" as macros %}
 
 {% block content %}
-    <div class="section--content grid">
+    <div class="section--content grid" itemscope itemtype="http://schema.org/CreativeWork">
 
         <div class="col-2-3">
             <a href="{{ record.url }}" rel="external">
-                <img class="day-image" src="{{ record.image }}" alt="{{ record.title | capitalize }} – {{ record.author | capitalize }}" title="{{ record.title | capitalize }} - {{ record.author | capitalize }}">
+                <img class="day-image" src="{{ record.image }}" alt="{{ record.title | capitalize }} – {{ record.author | capitalize }}" title="{{ record.title | capitalize }} - {{ record.author | capitalize }}" itemprop="image">
             </a>
         </div>
 
@@ -14,13 +14,17 @@
             <div class="section--content-border">
 
                 <a href="{{ record.permalink }}">
-                    <h2>{{readable_date}}</h2>
+                    <h2 itemprop="dateCreated">{{readable_date}}</h2>
                 </a>
 
                 {{ macros.calendar(calendar) }}
 
-                <a href="{{ record.url }}" rel="external" >
-                    <p class="margin-top-xl">{{ record.title | capitalize }}<br />{{ record.author | capitalize }}</p>
+                <a href="{{ record.url }}" rel="external" itemprop="url">
+                    <p class="margin-top-xl">
+                        <span itemprop="name">{{ record.title | capitalize }}</span>
+                        <br>
+                        <span itemprop="publisher">{{ record.author | capitalize }}</span>
+                    </p>
                 </a>
             </div>
         </div>
