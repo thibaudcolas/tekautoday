@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from os import environ
 from datetime import date
 from datetime import datetime
