@@ -1,30 +1,31 @@
 
-{% macro calendar(month) %}
+{% macro calendar(month, date) %}
     <div class="calendar--wrapper">
         <table class="calendar" role="nav">
             <thead>
                 <tr>
-                    <th scope="col" title="Monday">M</th>
-                    <th scope="col" title="Tuesday">T</th>
-                    <th scope="col" title="Wednesday">W</th>
-                    <th scope="col" title="Thursday">T</th>
-                    <th scope="col" title="Friday">F</th>
-                    <th scope="col" title="Saturday">S</th>
-                    <th scope="col" title="Sunday">S</th>
+                    <th scope="col" title="Monday"><div class="day">M</div></th>
+                    <th scope="col" title="Tuesday"><div class="day">T</div></th>
+                    <th scope="col" title="Wednesday"><div class="day">W</div></th>
+                    <th scope="col" title="Thursday"><div class="day">T</div></th>
+                    <th scope="col" title="Friday"><div class="day">F</div></th>
+                    <th scope="col" title="Saturday"><div class="day">S</div></th>
+                    <th scope="col" title="Sunday"><div class="day">S</div></th>
                 </tr>
             </thead>
             <tbody>
+                {% set date_in_current_year = date.replace(year=month[0][0].year) %}
                 {% for week in month %}
-                    <tr>
-                        {% for date in week %}
-                            {% set record = date | date_record %}
+                    <tr class="week week--{{ 'current' if date_in_current_year in week else 'other' }}">
+                        {% for day in week %}
+                            {% set record = day | date_record %}
                             <td>
                                 {% if record['id'] == 1337 %}
-                                    <div class="day">{{ date.day }}</div>
+                                    <div class="day {{ 'day--today' if day == date_in_current_year }}">{{ day.day }}</div>
                                 {% else %}
-                                    <a href="/record/{{record['hash']}}" class="day" title="{{record['date']}}">
-                                        <time datetime="{{record['date']}}">
-                                            {{ date.day }}
+                                    <a href="/record/{{ record['hash'] }}" class="day {{ 'day--today' if day == date_in_current_year }}" title="{{ record['date'] }}">
+                                        <time datetime="{{ record['date'] }}">
+                                            {{ day.day }}
                                         </time>
                                     </a>
                                 {% endif %}

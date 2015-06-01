@@ -80,7 +80,7 @@ def format_response(record, metadata):
         image = metadata['large_thumbnail_url']
 
     return {
-        'readable_date': day_date.strftime('%d %B %Y'),
+        'date': day_date,
         'record': {
             'image': image,
             'url': metadata['landing_url'],
@@ -88,7 +88,7 @@ def format_response(record, metadata):
             'title': metadata['title'],
             'permalink': '/record/' + record['hash']
         },
-        'calendar': get_calendar()
+        'calendar': get_calendar(),
     }
 
 
@@ -97,10 +97,8 @@ def format_error_response(error):
     Generates all variables that will be passed to the error template.
     """
 
-    today = date.today()
-
     return {
-        'readable_date': today.strftime('%d %B %Y'),
+        'date': date.today(),
         'error': error,
         'calendar': get_calendar()
     }

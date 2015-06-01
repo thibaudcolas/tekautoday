@@ -9,8 +9,12 @@ $column-spacing: 5em / 7;
     text-align: center;
 }
 
-.calendar th {
+.calendar tr {
     padding: $column-spacing .5em $column-spacing 0;
+}
+
+.week--current {
+    background-color: rgba(0, 0, 0, .2);
 }
 
 .calendar .day {
@@ -20,6 +24,10 @@ $column-spacing: 5em / 7;
     display: block;
     padding: 12px;
     text-align: center;
+}
+
+.day--today {
+    background-color: rgba(0, 0, 0, .2);
 }
 
 // .calendar tr {

@@ -14,10 +14,10 @@
             <div class="section--content-border">
 
                 <a href="{{ record.permalink }}">
-                    <h2 itemprop="dateCreated">{{readable_date}}</h2>
+                    <h2 itemprop="dateCreated">{{date.strftime('%d %B %Y')}}</h2>
                 </a>
 
-                {{ macros.calendar(calendar) }}
+                {{ macros.calendar(calendar, date) }}
 
                 <a href="{{ record.url }}" rel="external" itemprop="url">
                     <p class="margin-top-xl">
