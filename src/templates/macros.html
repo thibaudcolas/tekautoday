@@ -17,13 +17,13 @@
                 {% for week in month %}
                     <tr>
                         {% for date in week %}
-                            {% set link = date.day | day_link %}
+                            {% set record = date | date_record %}
                             <td>
-                                {% if link != 1 %}
+                                {% if record['id'] == 1337 %}
                                     <div class="day">{{ date.day }}</div>
                                 {% else %}
-                                    <a href="{{link}}" class="day" title="{{date.strftime('%d %B %Y')}}">
-                                        <time datetime="{{date.isoformat()}}">
+                                    <a href="/record/{{record['hash']}}" class="day" title="{{record['date']}}">
+                                        <time datetime="{{record['date']}}">
                                             {{ date.day }}
                                         </time>
                                     </a>
