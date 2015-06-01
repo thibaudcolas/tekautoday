@@ -9,6 +9,8 @@ import records
 DNZ_URL = 'http://api.digitalnz.org/v3/records/'
 DNZ_KEY = environ.get('DNZ_KEY')
 
+cache = {}
+
 
 def get_metadata(record):
     """
@@ -36,11 +38,12 @@ def get_calendar():
     return Calendar(0).monthdatescalendar(year, month)
 
 
-def update_record_cache(cache={}):
+def update_record_cache():
     """
     Fills the cache with values for the record of the day if necessary.
     """
 
+    global cache
     today = date.today()
 
     if ('day' not in cache) or (today != cache['day']):

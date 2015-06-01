@@ -10,13 +10,10 @@ app = flask.Flask(__name__)
 app.register_blueprint(filters.blueprint)
 app.register_blueprint(feed.blueprint)
 
-cache = {}
-
 
 @app.route('/')
 def index():
-    global cache
-    cache = utils.update_record_cache(cache)
+    cache = utils.update_record_cache()
     context = utils.format_response(cache['record'], cache['metadata'])
 
     return flask.render_template('index.html', **context)
@@ -33,8 +30,7 @@ def record(record_hash):
 
 @app.route('/api/record/')
 def api_index():
-    global cache
-    cache = utils.update_record_cache(cache)
+    cache = utils.update_record_cache()
 
     return flask.jsonify(**cache['metadata'])
 
