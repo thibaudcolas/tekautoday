@@ -23,11 +23,7 @@
     "python3",
     "flask",
     "jinja2",
-    "react",
-    "browserify",
     "heroku",
-    "es6",
-    "es2015",
     "sass"
   ],
   "scripts": {
