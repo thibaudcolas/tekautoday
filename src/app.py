@@ -61,4 +61,5 @@ if __name__ == '__main__':
     port = int(environ.get('PORT', 5000))
     debug = environ.get('ENV', 'development') == 'development'
 
+    records.load_records()
     app.run(host='0.0.0.0', port=port, debug=debug)

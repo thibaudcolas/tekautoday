@@ -52,5 +52,3 @@ def load_records():
 
         records_date[record['date']] = record
         records_hash[record['hash']] = record
-
-load_records()
