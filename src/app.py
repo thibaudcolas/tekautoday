@@ -8,7 +8,7 @@ import filters
 app = flask.Flask(__name__)
 app.register_blueprint(filters.blueprint)
 
-cache = utils.update_record_cache()
+cache = {}
 
 
 @app.route('/')
@@ -62,4 +62,5 @@ if __name__ == '__main__':
     debug = environ.get('ENV', 'development') == 'development'
 
     records.load_records()
+    cache = utils.update_record_cache()
     app.run(host='0.0.0.0', port=port, debug=debug)
