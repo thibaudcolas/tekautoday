@@ -1,3 +1,4 @@
+from datetime import datetime
 import src.records as records
 
 
@@ -33,3 +34,32 @@ def test_records_loading():
 
     assert len(records.records_hash) > 0
     assert len(records.records_date) > 0
+
+
+def test_records_access():
+    assert hasattr(records.get_record_by_hash, '__call__')
+    assert hasattr(records.get_record_by_date, '__call__')
+
+    records.load_records()
+
+    date = datetime.strptime('2015-06-01', '%Y-%m-%d').date()
+    record = records.get_record_by_date(date)
+
+    assert record['date'] == '2005-06-01'
+
+
+def test_records_access_fallback():
+    assert hasattr(records.get_record_by_hash, '__call__')
+    assert hasattr(records.get_record_by_date, '__call__')
+
+    records.load_records()
+
+    date = datetime.strptime('2015-05-26', '%Y-%m-%d').date()
+    record = records.get_record_by_date(date)
+
+    assert record['date'] == '2010-05-26'
+
+    date = datetime.strptime('2007-06-01', '%Y-%m-%d').date()
+    record = records.get_record_by_date(date)
+
+    assert record['date'] == '2005-06-01'
