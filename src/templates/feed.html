@@ -1,0 +1,21 @@
+<div itemscope itemtype="http://schema.org/CreativeWork">
+    <a href="{{ record.permalink }}">
+        <h2 itemprop="dateCreated">{{date.strftime('%d %B %Y')}}</h2>
+    </a>
+
+    <a href="{{ record.url }}" rel="external" itemprop="url">
+        <p class="margin-top-xl">
+            <span itemprop="name">{{ record.title | capitalize }}</span>
+            <br>
+            <span itemprop="publisher">{{ record.author | capitalize }}</span>
+        </p>
+    </a>
+
+    <a href="{{ record.url }}" rel="external">
+        <img class="day-image" src="{{ record.image }}" alt="{{ record.title | capitalize }} – {{ record.author | capitalize }}" title="{{ record.title | capitalize }} - {{ record.author | capitalize }}" itemprop="image">
+    </a>
+
+    <a href="{{ record.permalink }}">
+        <p>&lt;permalink&gt;</p>
+    </a>
+</div>

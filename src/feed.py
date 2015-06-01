@@ -14,7 +14,7 @@ def make_external(url):
 
 @blueprint.route('/atom')
 def atom_feed():
-    feed = AtomFeed('Recent content',
+    feed = AtomFeed('Tekau Today',
                     feed_url=request.url,
                     url=request.url_root
                     )
@@ -22,7 +22,13 @@ def atom_feed():
     cache = utils.update_record_cache()
     context = utils.format_response(cache['record'], cache['metadata'])
 
-    feed.add(context['record']['title'], '<p>Test</p>',
+    title = '{date} – {title}'.format(
+        date=context['date'].strftime('%d %B %Y'),
+        title=context['record']['title']
+    )
+    content = flask.render_template('feed.html', **context)
+
+    feed.add(title, content,
              content_type='html',
              author=context['record']['author'],
              url=make_external(context['record']['permalink']),
