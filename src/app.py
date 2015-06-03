@@ -10,6 +10,9 @@ app = flask.Flask(__name__)
 app.register_blueprint(filters.blueprint)
 app.register_blueprint(feed.blueprint)
 
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_blocks = True
+
 
 @app.route('/')
 def index():

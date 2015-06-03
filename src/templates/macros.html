@@ -25,11 +25,10 @@
                                 {% else %}
                                     <a href="/record/{{ record['hash'] }}" class="day {{ 'day--today' if day == date_in_current_year }}" title="{{ record['date'] }}">
                                         <time datetime="{{ record['date'] }}">
-                                            {{ day.day }}
+                                            {{- day.day -}}
                                         </time>
                                     </a>
                                 {% endif %}
-
                             </td>
                         {% endfor %}
                     </tr>
