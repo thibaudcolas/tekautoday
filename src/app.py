@@ -6,7 +6,7 @@ import utils
 import filters
 import feed
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_folder='static', static_url_path='')
 app.register_blueprint(filters.blueprint)
 app.register_blueprint(feed.blueprint)
 

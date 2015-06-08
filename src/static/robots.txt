@@ -1,0 +1,9 @@
+# www.robotstxt.org/
+# http://code.google.com/web/controlcrawlindex/
+
+# Allow crawling of all content
+User-agent: *
+Disallow:
+
+# Tell the bots where the sitemap is located.
+Sitemap: https://thib.me/sitemap.xml
