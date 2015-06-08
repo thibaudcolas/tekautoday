@@ -1,12 +1,11 @@
 $column-spacing: 5em / 7;
 
 .calendar {
-    table-layout: fixed;
-    border: none;
-    border-spacing: 0;
-    user-select: none;
-
     text-align: center;
+    border: 0;
+    border-spacing: 0;
+    table-layout: fixed;
+    user-select: none;
 }
 
 .calendar tr {
@@ -18,12 +17,11 @@ $column-spacing: 5em / 7;
 }
 
 .calendar .day {
-	font-size: 0.875rem;
-	text-decoration: none;
-
     display: block;
     padding: 12px;
+    font-size: .875rem;
     text-align: center;
+    text-decoration: none;
 }
 
 .day--today {

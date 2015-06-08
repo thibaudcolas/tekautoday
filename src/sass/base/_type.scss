@@ -19,7 +19,7 @@ span {
     color: $black;
 }
 
-h1, 
+h1,
 .h1 {
     font-size: 5rem;
     line-height: .825;
@@ -47,20 +47,20 @@ a * {
 
     transition: opacity 1s ease;
 
-    &:hover, 
+    &:hover,
     &:focus {
         text-decoration: none;
-        opacity: 0.5; 
+        opacity: .5;
 
-        transition: opacity 0.25s;
+        transition: opacity .25s;
     }
 }
 
-a h1, 
+a h1,
 a h2,
-a h3, 
+a h3,
 a h4,
-a h5, 
+a h5,
 a h6 {
     text-decoration: none;
 }
