@@ -1,4 +1,5 @@
 from os import environ
+from sys import exit
 from datetime import date
 from datetime import datetime
 from requests import get
@@ -21,8 +22,12 @@ def get_metadata(record):
 
     url = DNZ_URL + '{id}.json?api_key={key}'.format(id=id, key=DNZ_KEY)
 
-    metadata = get(url).json()['record']
-    metadata['hash'] = record['hash']
+    try:
+        metadata = get(url).json()['record']
+        metadata['hash'] = record['hash']
+    except KeyError:
+        print('You forgot the DNZ Key – Again!')
+        exit(1)
 
     return metadata
 
