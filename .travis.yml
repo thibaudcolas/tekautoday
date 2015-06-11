@@ -1,20 +1,18 @@
 language: python
 python:
     - 3.4
-branches:
-    except:
-        - deploy
 install:
     - gem install scss-lint
     - pip install flake8
     - pip install -r requirements.txt
     - npm install
 script:
-    - npm test
+    - npm run test
 deploy:
-  provider: heroku
-  api_key:
-    secure: TThaiqiYePMdHeQrIunsP3qyqibJJfDKqnFECzg0osvcl0f8WHN+I+VF5wL6GftX3U7E1IncUTAk+D4NLn+YiOBe7TC6TeJgRGPENKOYc14IZAJkszbx7KppbpRkhX//lWrTmFz8uV8CrrCQVwiHiV6aCNg+z68/hFLietYcRdk=
-  app: tekautoday
-  on:
-    repo: judsonsam/tekautoday
+    provider: heroku
+    api_key:
+        secure: TThaiqiYePMdHeQrIunsP3qyqibJJfDKqnFECzg0osvcl0f8WHN+I+VF5wL6GftX3U7E1IncUTAk+D4NLn+YiOBe7TC6TeJgRGPENKOYc14IZAJkszbx7KppbpRkhX//lWrTmFz8uV8CrrCQVwiHiV6aCNg+z68/hFLietYcRdk=
+    app: tekautoday
+    on:
+        branch: deploy
+        repo: judsonsam/tekautoday

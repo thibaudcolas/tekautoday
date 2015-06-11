@@ -99,9 +99,9 @@ git merge master
 npm run build
 # Commit the new build.
 git add . && git commit -m 'Deploy latest version'
-# Push it to GitHub.
+# Push it to GitHub, and Travis will pick it up.
 git push origin deploy
-# Then push the code to Heroku.
+# Alternatively, manual deploy
 git push heroku deploy:master
 ~~~
 
@@ -115,6 +115,12 @@ heroku config:add DNZ_KEY=<Production DNZ API KEY>
 heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 heroku config:add TZ="Pacific/Auckland"
 heroku ps:scale web=1
+~~~
+
+To configure deployment from Travis:
+
+~~~sh
+travis setup heroku
 ~~~
 
 ## Scripts
