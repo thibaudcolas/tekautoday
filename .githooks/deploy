@@ -15,7 +15,7 @@ HOOKS=$ROOT/$HOOK_DIR/*
 
 if [ ! -d "$ROOT/$HOOK_DIR" ]
 then
-    echo "Couldn't find hooks dir"
+    echo "Couldn't find hooks dir."
     exit 1
 fi
 
@@ -25,5 +25,8 @@ rm -f $BASE/hooks/*
 # Synlink new hooks.
 for HOOK in $HOOKS
 do
-    (cd $BASE/hooks ; ln -s $HOOK `basename $HOOK` || echo "Failed to link $HOOK to `basename $HOOK`")
+    (cd $BASE/hooks ; ln -s $HOOK `basename $HOOK` || echo "Failed to link $HOOK to `basename $HOOK`.")
 done
+
+echo "Hooks deployed to $BASE/hooks."
+exit 0
