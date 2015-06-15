@@ -32,7 +32,6 @@ Our main dependencies are:
 - [Flask](http://flask.pocoo.org/) web framework.
 - [virtualenv](https://virtualenv.pypa.io/en/latest/) and [pip](https://pypi.python.org/pypi/pip).
 - [Node.js](nodejs.org) JavaScript runtime and the [npm](https://www.npmjs.com/) ecosystem.
-- [Browserify](http://browserify.org/) dependency builder and the [Babel](https://babeljs.io/) ES6/ES2015 transpiler.
 
 > If you don't already have those installed, use `brew install python node`.
 
@@ -40,7 +39,6 @@ To install our dependencies, run:
 
 ```sh
 pip install flake8 virtualenv
-npm install --global gulp browserify eslint jscs browser-sync csscomb
 gem install scss_lint
 # Create a Python 3 virtual environment with virtualenv.
 virtualenv -p python3 env
