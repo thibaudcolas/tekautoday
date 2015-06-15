@@ -49,7 +49,7 @@ pip install -r requirements.txt
 # Then, install all npm dependencies.
 npm install
 # If that's your thing, install the git hooks:
-./hook/deploy
+./.githooks/deploy
 ```
 
 ## Working on the project
