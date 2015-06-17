@@ -5,6 +5,7 @@ var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
 var pleeease = require('gulp-pleeease');
 var scsslint = require('gulp-scss-lint');
+var cssstats = require('gulp-cssstats');
 
 var reload = browserSync.reload;
 
@@ -47,6 +48,12 @@ gulp.task('build', ['build:css']);
 gulp.task('lint:css', function() {
     return gulp.src(['src/sass/*.scss'])
         .pipe(scsslint());
+});
+
+gulp.task('report:css', ['build:css'], function() {
+    return gulp.src(['src/static/css/main.css'])
+        .pipe(cssstats())
+        .pipe(gulp.dest('./report/'));
 });
 
 gulp.task('lint', ['lint:css']);
