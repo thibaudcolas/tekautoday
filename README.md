@@ -110,6 +110,10 @@ Only when we set up the Heroku Dyno:
 ~~~sh
 heroku config:add ENV=production
 heroku config:add DNZ_KEY=<Production DNZ API KEY>
+heroku config:add TWITTER_CONSUMER_KEY=<Twitter CONSUMER KEY>
+heroku config:add TWITTER_CONSUMER_SECRET=<Twitter CONSUMER SECRET>
+heroku config:add TWITTER_ACCESS_KEY=<Twitter ACCESS KEY>
+heroku config:add TWITTER_ACCESS_SECRET=<Twitter ACCESS SECRET>
 heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 heroku config:add TZ="Pacific/Auckland"
 heroku ps:scale web=1
