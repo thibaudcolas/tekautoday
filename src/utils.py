@@ -4,11 +4,19 @@ from datetime import date
 from datetime import datetime
 from requests import get
 from calendar import Calendar
+import tweepy
 
 import records
 
 DNZ_URL = 'http://api.digitalnz.org/v3/records/'
 DNZ_KEY = environ.get('DNZ_KEY')
+
+CONSUMER_KEY = environ.get('TWITTER_CONSUMER_KEY')
+CONSUMER_SECRET = environ.get('TWITTER_CONSUMER_SECRET')
+ACCESS_KEY = environ.get('TWITTER_ACCESS_KEY')
+ACCESS_SECRET = environ.get('TWITTER_ACCESS_SECRET')
+
+debug = environ.get('ENV', 'development') == 'development'
 
 cache = {}
 
@@ -72,7 +80,30 @@ def update_record_cache():
                 'title': 'Not much to show today'
             }
 
+        tweet_record(cache['record'], cache['metadata'])
+
     return cache
+
+
+def tweet_record(record, metadata):
+    """
+    Uses Twitter's API to send a day's record.
+    """
+
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+    api = tweepy.API(auth)
+
+    status = '{prefix}: {date}, {title} – {url}'.format(
+        prefix='10 years ago today',
+        date=record['date'],
+        title=metadata['title'],
+        url='http://www.tekautoday.xyz/'
+    )
+
+    if not debug:
+        api.update_status(status=status)
+        print('Tweeted: ' + status)
 
 
 def format_response(record, metadata):
