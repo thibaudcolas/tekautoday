@@ -102,8 +102,11 @@ def tweet_record(record, metadata):
     )
 
     if not debug:
-        api.update_status(status=status)
-        print('Tweeted: ' + status)
+        try:
+            api.update_status(status=status)
+            print('Tweeted: ' + status)
+        except tweepy.error.TweepError:
+            print('Error while tweeting: ' + status)
 
 
 def format_response(record, metadata):
