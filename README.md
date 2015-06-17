@@ -59,8 +59,8 @@ npm install
 ~~~sh
 # Always start by activating Python's virtualenv.
 source env/bin/activate
-# Export your DNZ API Key
-export DNZ_KEY=<YOUR API KEY>
+# Export your environment variables.
+export DNZ_KEY=<YOUR API KEY>; export DNZ_KEY=<Production DNZ API KEY>; export TWITTER_CONSUMER_KEY=<Twitter CONSUMER KEY>; export TWITTER_CONSUMER_SECRET=<Twitter CONSUMER SECRET>; export TWITTER_ACCESS_KEY=<Twitter ACCESS KEY>; export TWITTER_ACCESS_SECRET=<Twitter ACCESS SECRET>;
 # Then start the server and the development tools.
 npm run start
 # Voilà!
