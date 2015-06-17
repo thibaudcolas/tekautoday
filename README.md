@@ -7,6 +7,7 @@
 
 - [Production site](http://www.tekautoday.xyz/)
 - [Trello board](https://trello.com/b/ytZCXTVM/tekau-today)
+- [Twitter account](https://twitter.com/TekauToday)
 
 Here are examples from the site:
 
