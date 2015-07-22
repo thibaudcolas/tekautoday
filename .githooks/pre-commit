@@ -15,5 +15,4 @@ then
     exit 1
 else
     npm test
-    exit 0
 fi
